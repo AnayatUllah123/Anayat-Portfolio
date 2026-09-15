@@ -1,0 +1,6 @@
+import { Award, Layers3, Rocket, ScanSearch, ShieldCheck } from 'lucide-react';
+import { process } from '../data/portfolioData';
+const outcomes = [['4+ Years', 'Teaching & mentoring experience', Award], ['React + TypeScript', 'Professional frontend delivery', Layers3], ['REST + State', 'Integrated product workflows', ShieldCheck], ['Production Mindset', 'Performance, accessibility, polish', Rocket]];
+export default function AchievementsProcess() {
+    return <section className="section shell process-section"><div className="section-head"><div><span className="section-kicker">HOW I WORK</span><h2>Structured process. <em>Thoughtful execution.</em></h2></div><p>I use a product-first workflow so design, code, APIs and delivery stay aligned instead of becoming isolated tasks.</p></div><div className="outcome-grid">{outcomes.map(([v, t, Icon]) => <article className="outcome-card reveal" key={v}><Icon /><strong>{v}</strong><span>{t}</span></article>)}</div><div className="process-timeline">{process.map((p, i) => <article className="process-step reveal" key={p.no}><div><span>{p.no}</span><ScanSearch /></div><h3>{p.title}</h3><p>{p.text}</p>{i < process.length - 1 && <i />}</article>)}</div></section>;
+}

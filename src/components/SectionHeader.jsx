@@ -1,0 +1,1 @@
+export default function SectionHeader({ eyebrow, title, copy }) { return <div className="section-header reveal"><div className="section-number"><span>{eyebrow}</span></div><div><h2>{title}</h2>{copy && <p>{copy}</p>}</div></div>; }

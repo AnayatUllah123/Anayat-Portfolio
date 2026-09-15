@@ -1,0 +1,6 @@
+dist
+node_modules
+public/certificates
+*.pdf
+*.jpg
+*.png
