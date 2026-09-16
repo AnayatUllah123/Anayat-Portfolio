@@ -77,53 +77,121 @@ export default function FeaturedWork() {
         <div className="auto-showcase-track project-auto-track">
           {loopProjects.map((project, index) => (
             <article
-              className={`project-card auto-project-card${project.url ? ' project-card-live' : ''}`}
-              key={`${project.title}-${index}`}
-              role={project.url ? 'link' : undefined}
-              tabIndex={project.url ? 0 : undefined}
-              onClick={() => openProject(project)}
-              onKeyDown={(event) => {
-                if (project.url && (event.key === 'Enter' || event.key === ' ')) {
-                  event.preventDefault()
-                  openProject(project)
-                }
-              }}
-            >
-              <div className="project-visual">
-                <ProjectVisual project={project} previewLive={index < featuredWork.length} />
-                <span className="project-badge">{project.type}</span>
-              </div>
+  className={`project-card auto-project-card${project.url ? ' project-card-live' : ''}`}
+  key={`${project.title}-${index}`}
+  role={project.url ? 'link' : undefined}
+  tabIndex={project.url ? 0 : undefined}
+  onClick={() => openProject(project)}
+  onKeyDown={(event) => {
+    if (project.url && (event.key === 'Enter' || event.key === ' ')) {
+      event.preventDefault()
+      openProject(project)
+    }
+  }}
+>
+  <div className="project-visual">
+    <ProjectVisual
+      project={project}
+      previewLive={index < featuredWork.length}
+    />
 
-              <div className="project-copy">
-                <div className="project-number">{project.no}</div>
-                <span className="project-kicker">{project.kicker}</span>
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
+    <span className="project-badge">{project.type}</span>
+  </div>
 
-                {project.bullets?.length > 0 && (
-                  <ul className="project-points">
-                    {project.bullets.slice(0, 2).map((bullet) => <li key={bullet}>{bullet}</li>)}
-                  </ul>
-                )}
+  <div className="project-copy">
+    <div className="project-topline">
+      <span className="project-number">{project.no}</span>
+      <span className="project-kicker">{project.kicker}</span>
+    </div>
 
-                <div className="tag-row">
-                  {project.stack.slice(0, 4).map((item) => <span key={item}>{item}</span>)}
-                </div>
+    <h3>{project.title}</h3>
 
-                <div className="project-links">
-                  {project.url ? (
-                    <a href={project.url} target="_blank" rel="noreferrer" onClick={(event) => event.stopPropagation()}>
-                      Open Live Project <ArrowUpRight size={15} />
-                    </a>
-                  ) : (
-                    <span><LockKeyhole size={15} /> Experience-backed</span>
-                  )}
-                  <a href={profile.github} target="_blank" rel="noreferrer" onClick={(event) => event.stopPropagation()}>
-                    GitHub <Github size={16} />
-                  </a>
-                </div>
-              </div>
-            </article>
+    <p>{project.description}</p>
+
+    <div className="tag-row">
+      {project.stack.slice(0, 3).map((item) => (
+        <span key={item}>{item}</span>
+      ))}
+    </div>
+
+    <div className="project-links">
+      {project.url ? (
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noreferrer"
+          onClick={(event) => event.stopPropagation()}
+        >
+          Live Project
+          <ArrowUpRight size={14} />
+        </a>
+      ) : (
+        <span>
+          <LockKeyhole size={14} />
+          Private
+        </span>
+      )}
+
+      <a
+        href={profile.github}
+        target="_blank"
+        rel="noreferrer"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <Github size={15} />
+        GitHub
+      </a>
+    </div>
+  </div>
+</article>
+            // <article
+            //   className={`project-card auto-project-card${project.url ? ' project-card-live' : ''}`}
+            //   key={`${project.title}-${index}`}
+            //   role={project.url ? 'link' : undefined}
+            //   tabIndex={project.url ? 0 : undefined}
+            //   onClick={() => openProject(project)}
+            //   onKeyDown={(event) => {
+            //     if (project.url && (event.key === 'Enter' || event.key === ' ')) {
+            //       event.preventDefault()
+            //       openProject(project)
+            //     }
+            //   }}
+            // >
+            //   <div className="project-visual">
+            //     <ProjectVisual project={project} previewLive={index < featuredWork.length} />
+            //     <span className="project-badge">{project.type}</span>
+            //   </div>
+
+            //   <div className="project-copy">
+            //     <div className="project-number">{project.no}</div>
+            //     <span className="project-kicker">{project.kicker}</span>
+            //     <h3>{project.title}</h3>
+            //     <p>{project.description}</p>
+
+            //     {project.bullets?.length > 0 && (
+            //       <ul className="project-points">
+            //         {project.bullets.slice(0, 2).map((bullet) => <li key={bullet}>{bullet}</li>)}
+            //       </ul>
+            //     )}
+
+            //     <div className="tag-row">
+            //       {project.stack.slice(0, 4).map((item) => <span key={item}>{item}</span>)}
+            //     </div>
+
+            //     <div className="project-links">
+            //       {project.url ? (
+            //         <a href={project.url} target="_blank" rel="noreferrer" onClick={(event) => event.stopPropagation()}>
+            //           Open Live Project <ArrowUpRight size={15} />
+            //         </a>
+            //       ) : (
+            //         <span><LockKeyhole size={15} /> Experience-backed</span>
+            //       )}
+            //       <a href={profile.github} target="_blank" rel="noreferrer" onClick={(event) => event.stopPropagation()}>
+            //         GitHub <Github size={16} />
+            //       </a>
+            //     </div>
+            //   </div>
+            // </article>
           ))}
         </div>
       </div>

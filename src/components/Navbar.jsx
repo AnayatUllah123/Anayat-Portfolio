@@ -1,5 +1,5 @@
-import { useState } from 'react'
 import { Menu, Send, X } from 'lucide-react'
+import { useState } from 'react'
 import { profile } from '../data/portfolioData'
 
 export default function Navbar() {
@@ -53,7 +53,7 @@ export default function Navbar() {
           </div>
         </a>
 
-        <div className={`nav-links ${open ? 'open' : ''}`}>
+        <div id="mobile-navigation" className={`nav-links ${open ? 'open' : ''}`}>
           {links.map(([label, id]) => (
             <a
               href={`#${id}`}
@@ -72,14 +72,12 @@ export default function Navbar() {
             <Send size={14} /> Let’s Talk
           </a>
         </div>
-
-        <button
-          className="menu-btn"
-          onClick={() => setOpen((value) => !value)}
-          aria-label="Toggle menu"
-        >
-          {open ? <X /> : <Menu />}
-        </button>
+        <button className="menu-btn" onClick={() => setOpen((value) => !value)}
+        aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
+        aria-expanded={open}
+        aria-controls="mobile-navigation">
+  {open ? <X size={19} /> : <Menu size={19} />}
+</button>
       </nav>
     </header>
   )
