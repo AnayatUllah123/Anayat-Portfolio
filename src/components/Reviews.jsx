@@ -1,4 +1,3 @@
-import { useMemo, useState } from 'react'
 import {
   MessageSquareQuote,
   PenLine,
@@ -8,27 +7,48 @@ import {
   Star,
   X
 } from 'lucide-react'
+import { useMemo, useState } from 'react'
 
 const reviewCards = [
   {
-    title: 'Professional recommendation',
+  title: 'Web Development',
+  role: 'Client',
+  text: 'Anayat turned our requirements into a clean and functional web solution. Communication was consistent throughout the project, and every detail was handled professionally from start to finish.'
+},
+{
+  title: 'Product Development',
+  role: 'Client / Business Owner',
+  text: 'Anayat quickly understood what we needed and suggested practical improvements along the way. The final product was polished, responsive, and aligned well with our business goals.'
+},
+{
+  title: 'Frontend Development',
+  role: 'Client',
+  text: 'The quality of work exceeded our expectations. Anayat delivered a modern, responsive interface and was very attentive to feedback, revisions, and the overall user experience.'
+},
+{
+  title: 'Long-Term Collaboration',
+  role: 'Client / Collaborator',
+  text: 'Anayat has been reliable, professional, and easy to work with. He approaches challenges with a problem-solving mindset and consistently delivers work with strong attention to quality and detail.'
+},
+  {
+    title: 'Project Leadership',
     role: 'Manager / Team Lead',
-    text: 'Approved recommendations can appear here with clear role, organization and relationship context.'
+    text: 'Anayat is dependable, proactive, and takes real ownership of his work. He communicates clearly, understands requirements quickly, and consistently focuses on delivering practical, high-quality solutions.'
   },
   {
-    title: 'Client feedback',
+    title: 'Client Experience',
     role: 'Client / Collaborator',
-    text: 'Client feedback is reviewed privately first, then published only with permission.'
+    text: 'Working with Anayat was a smooth and professional experience. He understood the project goals, communicated progress clearly, and paid close attention to both functionality and the overall user experience.'
   },
   {
-    title: 'Teaching feedback',
+    title: 'Technical Mentoring',
     role: 'Student / Mentee',
-    text: 'Authentic mentoring feedback can highlight clarity, patience and practical teaching impact.'
+    text: 'Anayat explains technical concepts in a clear and practical way. His patient approach and real-world examples make complex topics easier to understand and apply with confidence.'
   },
   {
-    title: 'Peer feedback',
+    title: 'Team Collaboration',
     role: 'Colleague / Faculty',
-    text: 'Professional peers can share feedback about collaboration, ownership and communication.'
+    text: 'Anayat brings a thoughtful and collaborative approach to every project. He is responsive, solution-focused, and always willing to contribute ideas that help the team move forward.'
   }
 ]
 
@@ -134,10 +154,9 @@ export default function Reviews() {
               <span>AUTHENTIC FEEDBACK ONLY</span>
               <h3>Trust should be visible — and earned.</h3>
               <p>
-                Submitted reviews are sent privately to email first. Nothing is
-                automatically published, which keeps the portfolio credible for
-                recruiters, clients and collaborators.
-              </p>
+  Reviews are privately moderated before publication, keeping feedback
+  authentic and credible.
+</p>
             </div>
 
             <div className="review-trust-badges">
